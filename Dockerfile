@@ -9,5 +9,4 @@ RUN find /core/ui -type f \( -name "*.html" -o -name "*.js" -o -name "*.json" -o
     -exec sed -i \
       -e 's/Restreamer/Media Solution Broadcast Panel/g' \
       -e 's/Datarhei/Media Solution/g' \
-      -e 's/datarhei-core/MSBP v1.0/g' \
       -e 's/datarhei.com/mediasolution.cloud/g' {} \; || true
