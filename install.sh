@@ -1,23 +1,31 @@
 #!/bin/bash
-
 set -e
 
-echo "Installing Media Solution..."
+echo "========================================="
+echo " Media Solution Broadcast Panel Installer "
+echo "========================================="
 
-git clone https://github.com/Mediasol007/mediasolution.git /opt/mediasolution
+apt update -y
+apt install -y docker.io git nginx
 
-cd /opt/mediasolution
-
-docker build -t mediasolution .
+systemctl enable docker
+systemctl start docker
 
 docker rm -f mediasolution 2>/dev/null || true
 
+docker build -t mediasolution:latest .
+
 docker run -d \
   --name mediasolution \
-  --restart=always \
+  --restart unless-stopped \
   -p 8085:8080 \
-  -p 8185:8181 \
-  -p 1940:1935 \
-  mediasolution
+  -p 19350:1935 \
+  mediasolution:latest
 
-echo "Done!"
+echo ""
+echo "======================================"
+echo " Installation Complete"
+echo " Panel : http://YOUR-IP:8085/ui/"
+echo " User  : admin"
+echo " Pass  : Admin@123"
+echo "======================================"
