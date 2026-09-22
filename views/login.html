@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>MSBP Login</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:linear-gradient(135deg,#0b1d3a,#081321);
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.box{
+  width:380px;
+  background:#11284a;
+  padding:35px;
+  border-radius:18px;
+  box-shadow:0 15px 35px rgba(0,0,0,.4);
+}
+h1{
+  color:#fff;
+  text-align:center;
+  margin-bottom:8px;
+}
+p{
+  color:#8fb5ff;
+  text-align:center;
+  margin-bottom:25px;
+}
+input{
+  width:100%;
+  padding:14px;
+  margin-bottom:15px;
+  border:none;
+  border-radius:10px;
+  background:#183764;
+  color:#fff;
+}
+button{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:10px;
+  background:#1f5eff;
+  color:#fff;
+  font-size:16px;
+  cursor:pointer;
+}
+.note{
+  margin-top:18px;
+  color:#9bbcff;
+  font-size:13px;
+  text-align:center;
+}
+</style>
+</head>
+<body>
+
+<div class="box">
+<h1>MEDIA SOLUTION</h1>
+<p>Broadcast Panel Login</p>
+
+<form method="POST" action="/login">
+<input name="username" placeholder="Username" required>
+<input name="password" type="password" placeholder="Password" required>
+<button>Login</button>
+</form>
+
+<div class="note">
+Default Login<br>
+admin / admin123
+</div>
+</div>
+
+</body>
+</html>
