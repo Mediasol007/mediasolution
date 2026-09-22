@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Media Solution Broadcast Panel</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#07182d;
+  color:#fff;
+}
+.header{
+  background:#1f5eff;
+  padding:18px 30px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.logo{
+  font-size:34px;
+  font-weight:800;
+}
+.logo small{
+  display:block;
+  font-size:13px;
+  font-weight:400;
+}
+.wrap{padding:30px}
+h1{margin-bottom:8px}
+.date{opacity:.8;margin-bottom:25px}
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+.card{
+  border-radius:16px;
+  padding:22px;
+}
+.blue{background:#165DFF}
+.green{background:#08B34D}
+.purple{background:#6A1BFF}
+.orange{background:#F56A00}
+.card h2{font-size:40px;margin-top:12px}
+.table{
+  margin-top:30px;
+  background:#0F2747;
+  border-radius:18px;
+  overflow:hidden;
+}
+table{
+  width:100%;
+  border-collapse:collapse;
+}
+th,td{
+  padding:16px;
+  border-bottom:1px solid #1f3d63;
+  text-align:left;
+}
+th{background:#16345f}
+.live{
+  background:#00C853;
+  padding:6px 12px;
+  border-radius:20px;
+  font-size:12px;
+}
+.off{
+  background:#ff3b3b;
+  padding:6px 12px;
+  border-radius:20px;
+  font-size:12px;
+}
+.footer{
+  text-align:center;
+  padding:30px;
+  opacity:.6;
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="logo">
+    MEDIA SOLUTION
+    <small>Broadcast Panel</small>
+  </div>
+  <div>P.K Gupta</div>
+</div>
+
+<div class="wrap">
+
+  <h1>Dashboard</h1>
+  <div class="date">22 Sep 2026 • Super Admin</div>
+
+  <div class="cards">
+    <div class="card blue">
+      <div>Total Clients</div>
+      <h2>6</h2>
+    </div>
+
+    <div class="card green">
+      <div>Live Channels</div>
+      <h2>5</h2>
+    </div>
+
+    <div class="card purple">
+      <div>Storage Used</div>
+      <h2>142 GB</h2>
+    </div>
+
+    <div class="card orange">
+      <div>Bandwidth</div>
+      <h2>1.8 TB</h2>
+    </div>
+  </div>
+
+  <div class="table">
+    <table>
+      <tr>
+        <th>Channel</th>
+        <th>Status</th>
+        <th>Storage</th>
+      </tr>
+
+      <tr>
+        <td>Sangam TV</td>
+        <td><span class="live">LIVE</span></td>
+        <td>28 GB</td>
+      </tr>
+
+      <tr>
+        <td>Popli Live</td>
+        <td><span class="live">LIVE</span></td>
+        <td>12 GB</td>
+      </tr>
+
+      <tr>
+        <td>Sanatan Vedic TV</td>
+        <td><span class="live">LIVE</span></td>
+        <td>18 GB</td>
+      </tr>
+
+      <tr>
+        <td>KKD News</td>
+        <td><span class="live">LIVE</span></td>
+        <td>45 GB</td>
+      </tr>
+
+      <tr>
+        <td>News Plus</td>
+        <td><span class="off">OFF</span></td>
+        <td>8 GB</td>
+      </tr>
+
+    </table>
+  </div>
+
+</div>
+
+<div class="footer">
+Media Solution © 2026
+</div>
+
+</body>
+</html>
