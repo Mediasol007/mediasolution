@@ -2,68 +2,141 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Media Solution Broadcast Panel</title>
 <style>
-body{
-  margin:0;
-  font-family:Arial,Helvetica,sans-serif;
-  background:#07182d;
-  color:#fff;
-}
-header{
-  background:#1f5eff;
-  padding:20px 30px;
-  font-size:32px;
-  font-weight:bold;
-}
-small{display:block;font-size:14px;font-weight:400}
-.wrap{padding:30px}
-.cards{display:flex;gap:20px;flex-wrap:wrap}
-.card{
-  flex:1;
-  min-width:180px;
-  border-radius:15px;
-  padding:20px;
-  background:#12325c;
-}
-h2{margin:0;font-size:40px}
-table{
-  width:100%;
-  margin-top:30px;
-  border-collapse:collapse;
-  background:#10294b;
-}
-th,td{
-  padding:15px;
-  border-bottom:1px solid #21446d;
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial;background:#041a34;color:#fff}
+.topbar{position:fixed;top:0;left:0;right:0;height:78px;background:#2563eb;display:flex;align-items:center;justify-content:space-between;padding:0 25px;z-index:1000}
+.logo h1{font-size:34px}.logo span{font-size:14px;opacity:.9}
+.user{background:#ffffff22;padding:10px 18px;border-radius:25px}
+.sidebar{position:fixed;top:78px;left:0;width:235px;bottom:0;background:#071b38;padding:18px}
+.sidebar h2{margin-bottom:20px}
+.sidebar a{display:block;color:#dbeafe;text-decoration:none;padding:12px 15px;border-radius:10px;margin-bottom:8px}
+.sidebar a:hover,.sidebar a.active{background:#2563eb}
+.main{margin-left:235px;padding:100px 25px 25px}
+.page{display:none}.page.active{display:block}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:20px}
+.card{background:#17386a;border-radius:14px;padding:20px}
+.card h3{font-size:15px;color:#cbd5e1}.num{font-size:46px;font-weight:bold;margin-top:10px}
+.tablebox{background:#102d57;border-radius:14px;overflow:hidden}
+table{width:100%;border-collapse:collapse}
+th{background:#163b71;padding:14px}td{padding:14px;border-top:1px solid #27456d}
+.live{color:#00e676;font-weight:bold}.off{color:#ff5252;font-weight:bold}
+.btn{background:#2563eb;border:none;color:#fff;padding:11px 18px;border-radius:8px;cursor:pointer}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}
+.form{background:#102d57;padding:20px;border-radius:12px;max-width:650px}
+.form input,.form select{width:100%;padding:12px;margin:10px 0;background:#17386a;border:1px solid #31578a;border-radius:8px;color:#fff}
+.save{width:100%;background:#16a34a}
+@media(max-width:900px){
+.sidebar{width:70px}
+.sidebar a{font-size:0;padding:14px}
+.sidebar h2{display:none}
+.main{margin-left:70px}
+.cards{grid-template-columns:repeat(2,1fr)}
 }
 </style>
 </head>
 <body>
 
-<header>
-MEDIA SOLUTION
-<small>Broadcast Panel</small>
-</header>
+<div class="topbar">
+  <div class="logo">
+    <h1>MEDIA SOLUTION</h1>
+    <span>Broadcast Panel</span>
+  </div>
+  <div class="user">P.K Gupta</div>
+</div>
 
-<div class="wrap">
+<div class="sidebar">
+  <h2>MSBP</h2>
+  <a class="active" onclick="showPage('dashboard',this)">🏠 Dashboard</a>
+  <a onclick="showPage('clients',this)">👥 Clients</a>
+  <a onclick="showPage('create',this)">➕ Create Client</a>
+  <a onclick="showPage('streams',this)">📺 Live Streams</a>
+  <a onclick="showPage('vod',this)">🎬 VOD Library</a>
+  <a onclick="showPage('playlist',this)">🔁 Playlist</a>
+  <a onclick="showPage('analytics',this)">📊 Analytics</a>
+  <a onclick="showPage('settings',this)">⚙ Settings</a>
+</div>
+
+<div class="main">
+
+<section id="dashboard" class="page active">
+  <div class="header"><h2>Dashboard</h2></div>
+
   <div class="cards">
-    <div class="card"><div>Clients</div><h2>6</h2></div>
-    <div class="card"><div>Channels</div><h2>5</h2></div>
-    <div class="card"><div>Storage</div><h2>142GB</h2></div>
-    <div class="card"><div>Bandwidth</div><h2>1.8TB</h2></div>
+    <div class="card"><h3>Total Clients</h3><div class="num">6</div></div>
+    <div class="card"><h3>Live Channels</h3><div class="num">5</div></div>
+    <div class="card"><h3>Storage</h3><div class="num">142GB</div></div>
+    <div class="card"><h3>Bandwidth</h3><div class="num">1.8TB</div></div>
   </div>
 
-  <table>
-    <tr><th>Channel</th><th>Status</th></tr>
-    <tr><td>Sangam TV</td><td>LIVE</td></tr>
-    <tr><td>Popli Live</td><td>LIVE</td></tr>
-    <tr><td>Sanatan Vedic TV</td><td>LIVE</td></tr>
-    <tr><td>KKD News</td><td>LIVE</td></tr>
-    <tr><td>News Plus</td><td>OFF</td></tr>
-  </table>
+  <div class="tablebox">
+    <table>
+      <tr><th>Channel</th><th>Status</th></tr>
+      <tr><td>Sangam TV</td><td class="live">LIVE</td></tr>
+      <tr><td>Popli Live</td><td class="live">LIVE</td></tr>
+      <tr><td>Sanatan Vedic TV</td><td class="live">LIVE</td></tr>
+      <tr><td>KKD News</td><td class="live">LIVE</td></tr>
+      <tr><td>News Plus</td><td class="off">OFF</td></tr>
+    </table>
+  </div>
+</section>
+
+<section id="clients" class="page">
+  <div class="header">
+    <h2>Clients</h2>
+    <button class="btn" onclick="showPage('create')">+ New Client</button>
+  </div>
+  <div class="tablebox">
+    <table>
+      <tr><th>Client</th><th>Channel</th><th>Plan</th></tr>
+      <tr><td>Media Solution</td><td>Sangam TV</td><td>Enterprise</td></tr>
+      <tr><td>Popli Network</td><td>Popli Live</td><td>Pro</td></tr>
+      <tr><td>Sanatan Group</td><td>Sanatan Vedic</td><td>Pro</td></tr>
+    </table>
+  </div>
+</section>
+
+<section id="create" class="page">
+  <div class="header"><h2>Create Client</h2></div>
+  <div class="form">
+    <label>Client Name</label>
+    <input placeholder="Media Solution">
+
+    <label>Channel Name</label>
+    <input placeholder="Sangam TV">
+
+    <label>Email</label>
+    <input placeholder="client@email.com">
+
+    <label>Plan</label>
+    <select>
+      <option>Starter</option>
+      <option>Pro</option>
+      <option>Enterprise</option>
+    </select>
+
+    <button class="btn save">Save Client</button>
+  </div>
+</section>
+
+<section id="streams" class="page"><h2>📺 Live Streams</h2><br><p>RTMP / SRT Module (Next Step)</p></section>
+<section id="vod" class="page"><h2>🎬 VOD Library</h2><br><p>Upload & Video Library (Next Step)</p></section>
+<section id="playlist" class="page"><h2>🔁 Playlist</h2><br><p>24x7 Loop Playlist (Next Step)</p></section>
+<section id="analytics" class="page"><h2>📊 Analytics</h2><br><p>Bandwidth Graph (Next Step)</p></section>
+<section id="settings" class="page"><h2>⚙ Settings</h2><br><p>DNS / SSL / Users (Next Step)</p></section>
+
 </div>
+
+<script>
+function showPage(id,el){
+ document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+ document.getElementById(id).classList.add("active");
+ document.querySelectorAll(".sidebar a").forEach(a=>a.classList.remove("active"));
+ if(el) el.classList.add("active");
+}
+</script>
 
 </body>
 </html>
